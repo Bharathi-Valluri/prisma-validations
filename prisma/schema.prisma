@@ -12,14 +12,14 @@ datasource db {
 
 model Client {
   id   Int    @id @default(autoincrement())
-  Name String @unique
+  Name String
   user User[]
   // relation scalar field (used in the `@relation` attribute above)
 }
 
 model User {
   id       Int    @id @default(autoincrement())
-  Name     String @unique
+  name     String
   client   Client @relation(fields: [clientId], references: [id])
   clientId Int
 }
